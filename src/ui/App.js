@@ -33,6 +33,7 @@ const Container = styled.div`
 
 const Title = styled.h1`
   text-align: center;
+  margin: 5px auto;
   font-size: 50px;
   color: #fff;
 `

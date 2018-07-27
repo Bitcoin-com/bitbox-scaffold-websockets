@@ -45,6 +45,7 @@ const Address = styled.a`
     text-decoration: none;
     color: #000;
     grid-area: addr;
+    z-index: 10;
     text-size: 14px;
     text-align: center;
 `
