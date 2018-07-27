@@ -2,10 +2,10 @@ import React, { Component } from 'react'
 
 import styled from 'styled-components'
 
-import Performer from './Components/Performer'
-import Footer from './Components/Footer'
+import Performer from './components/Performer'
+import Footer from './components/Footer'
 
-import { performers as initPerformers } from '../performers'
+import { performers as initPerformers } from './performers'
 
 const BITBOXCli = require('bitbox-cli/lib/bitbox-cli').default
 const BITBOX = new BITBOXCli()

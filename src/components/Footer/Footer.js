@@ -1,7 +1,7 @@
 
 import React from 'react'
 import styled from 'styled-components'
-import bitboxLogo from '../../../assets/bitbox-logo.png'
+import bitboxLogo from '../../assets/bitbox-logo.png'
 
 const Wrapper = styled.div`
     background: #fff;

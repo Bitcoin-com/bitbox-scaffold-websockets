@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './ui/App';
+import App from './App';
 import { injectGlobal } from 'styled-components'
 import registerServiceWorker from './registerServiceWorker';
 
@@ -13,7 +13,6 @@ injectGlobal`
         font-family: Leto, Helvetica, sans-serif;
     }
 `
-
 
 ReactDOM.render(<App />, document.getElementById('root'));
 registerServiceWorker();
