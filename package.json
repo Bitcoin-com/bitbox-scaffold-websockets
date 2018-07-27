@@ -1,9 +1,9 @@
 {
-  "name": "BITBOX-React-Scaffold",
+  "name": "tipsmonitor",
   "license": "MIT",
-  "description": "Basic react app w/ BITBOX bindings",
-  "author": "Gabriel Cardona @ Bitcoin.com",
-  "version": "1.4.4",
+  "description": "Monitors addresses and notifies upon receiving a tip",
+  "author": "Paul Bergamo @ Bitcoin.com",
+  "version": "1.0",
   "private": true,
   "dependencies": {
     "bitbox-cli": "^1.4.5",
