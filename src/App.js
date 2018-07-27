@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
-
 import styled from 'styled-components'
+
+import * as BITBOXCli from 'bitbox-cli/lib/bitbox-cli'
 
 import Performer from './components/Performer'
 import Footer from './components/Footer'
-
 import { performers as initPerformers } from './performers'
 
-const BITBOXCli = require('bitbox-cli/lib/bitbox-cli').default
-const BITBOX = new BITBOXCli()
+//const BITBOXCli = require('bitbox-cli/lib/bitbox-cli').default
+const BITBOX = new BITBOXCli.default()
 const socket = new BITBOX.Socket()
 
 const Wrapper = styled.div`
@@ -37,7 +37,6 @@ const Title = styled.h1`
   font-size: 50px;
   color: #fff;
 `
-
 
 const getOutputAddresses = (outputs) => {
   const addresses = outputs.reduce((prev, curr, idx) => {
@@ -129,8 +128,10 @@ class App extends Component {
         <Container>
           {performerAddresses.map((p, i) => {
             const performer = performers[p]
+            const cashaddr = BITBOX.Address.toCashAddress(p)
+
             return (
-              <Performer key={i} performer={performer} address={p} />
+              <Performer key={i} performer={performer} address={cashaddr} />
             )
           })}
           <Footer />

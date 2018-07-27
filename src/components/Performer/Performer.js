@@ -3,9 +3,6 @@ import styled from 'styled-components'
 import QRCode from 'qrcode-react'
 import Notification from '../Notification'
 
-const BITBOXCli = require('bitbox-cli/lib/bitbox-cli').default
-const BITBOX = new BITBOXCli()
-
 const Wrapper = styled.div`
     position: relative;
     margin: 15px;
@@ -67,16 +64,15 @@ const Balance = styled.div`
 class Performer extends React.Component {
     render() {
         const { performer, address } = this.props
-        const cashaddr = BITBOX.Address.toCashAddress(address)
 
         return (
             <Wrapper>
                 <Image image={performer.image} />
                 <Notification performer={performer} show={performer.notification} />
                 <QRContainer>
-                    <QRCode value={cashaddr} size={170} />
+                    <QRCode value={address} size={170} />
                 </QRContainer>
-                <Address href={cashaddr}>{cashaddr.substring(12)}</Address>
+                <Address href={address}>{address.substring(12)}</Address>
                 <Name>{performer.name}</Name>
                 <Balance>
                     {performer.balance} BCH
