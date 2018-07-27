@@ -58,7 +58,7 @@ const Name = styled.h2`
 
 const Balance = styled.div`
     grid-area: bal;
-    font-size: 40px;
+    font-size: 36px;
     font-weight: 700;
     color: #000;
     text-align: center;

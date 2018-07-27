@@ -127,7 +127,7 @@ class App extends Component {
 
     return (
       <Wrapper>
-        <Title>Tip some BCH</Title>
+        <Title>心付け BCH Encouragement Board <span style={{color: "red"}}>❤</span></Title>
         <Container>
           {Object.keys(performers).map((p, i) => {
             const performer = performers[p]

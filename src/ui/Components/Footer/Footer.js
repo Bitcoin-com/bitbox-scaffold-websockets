@@ -14,6 +14,7 @@ const Wrapper = styled.div`
     flex-direction: column;
     align-items: center;
     box-sizing: border-box;
+    padding: 5px;
 `
 
 const Image = styled.img`
