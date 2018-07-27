@@ -10,7 +10,7 @@ const Wrapper = styled.div`
     position: relative;
     margin: 15px;
     display: grid;
-    grid-template-areas: 'pic qr' 'name name' 'bal bal';
+    grid-template-areas: 'pic qr' 'addr addr' 'name name' 'bal bal';
     grid-gap: 5px;
     justify-content: center;
     background: #eee;
@@ -18,7 +18,7 @@ const Wrapper = styled.div`
     padding: 5px;
 `
 
-const ImageContainer = styled.div`
+const Image = styled.div`
     grid-area: pic;
     background: url(${props => props.image}) no-repeat center center;
     background-size: cover;
@@ -41,11 +41,20 @@ const QRContainer = styled.div`
     justify-content: center;
 `
 
+const Address = styled.a`
+    text-decoration: none;
+    color: #000;
+    grid-area: addr;
+    text-size: 14px;
+    text-align: center;
+`
+
 const Name = styled.h2`
     grid-area: name;
     color: #000;
     text-align: center;
 `
+
 const Balance = styled.div`
     grid-area: bal;
     font-size: 40px;
@@ -61,11 +70,12 @@ class Performer extends React.Component {
 
         return (
             <Wrapper>
-                <ImageContainer image={performer.image} />
+                <Image image={performer.image} />
                 <Notification performer={performer} show={performer.notification} />
                 <QRContainer>
                     <QRCode value={cashaddr} size={170} />
                 </QRContainer>
+                <Address href={cashaddr}>{cashaddr.substring(12)}</Address>
                 <Name>{performer.name}</Name>
                 <Balance>
                     {performer.balance} BCH
