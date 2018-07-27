@@ -1,13 +1,11 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-
 import * as BITBOXCli from 'bitbox-cli/lib/bitbox-cli'
 
 import Performer from './components/Performer'
 import Footer from './components/Footer'
 import { performers as initPerformers } from './performers'
 
-//const BITBOXCli = require('bitbox-cli/lib/bitbox-cli').default
 const BITBOX = new BITBOXCli.default()
 const socket = new BITBOX.Socket()
 
@@ -49,7 +47,7 @@ const getOutputAddresses = (outputs) => {
     return [...prev, { ...ret }]
   }, [])
 
-  return addresses;
+  return addresses
 }
 
 class App extends Component {
@@ -64,11 +62,14 @@ class App extends Component {
       performers: initPerformers,
       performerAddresses
     }
+
+    this.handleNewTx = this.handleNewTx.bind(this)
   }
 
   componentDidMount() {
-    socket.listen('transactions', this.handleNewTx.bind(this))
-    this.handleUpdateAddressBalance(this.state.performerAddresses);
+    const { performerAddresses } = this.state
+    socket.listen('transactions', this.handleNewTx)
+    this.handleUpdateAddressBalance(performerAddresses)
   }
 
   handleNewTx(msg) {
@@ -76,25 +77,25 @@ class App extends Component {
     const json = JSON.parse(msg)
     const outputs = json.outputs
 
-    const addresses = getOutputAddresses(outputs);
+    const addresses = getOutputAddresses(outputs)
 
     Object.keys(performers).forEach(p => {
       addresses.forEach(a => {
-        const key = Object.keys(a)[0];
+        const key = Object.keys(a)[0]
 
         if (p === key) {
-          performers[p].lastTip = a[key].value;
-          performers[p].notification = true;
+          performers[p].lastTip = a[key].value
+          performers[p].notification = true
           this.setState({
             performers
           })
 
           setTimeout(() => {
-            performers[p].notification = false;
+            performers[p].notification = false
             this.setState({
               performers
             })
-          }, 5000);
+          }, 5000)
 
           this.handleUpdateAddressBalance(performerAddresses)
         }
@@ -115,7 +116,7 @@ class App extends Component {
         performers
       })
     }, (err) => {
-      console.log(err);
+      console.log(err)
     });
   }
 
@@ -126,9 +127,9 @@ class App extends Component {
       <Wrapper>
         <Title>心付け BCH Encouragement Board <span style={{ color: "red" }}>❤</span></Title>
         <Container>
-          {performerAddresses.map((p, i) => {
-            const performer = performers[p]
-            const cashaddr = BITBOX.Address.toCashAddress(p)
+          {performerAddresses.map((address, i) => {
+            const performer = performers[address]
+            const cashaddr = BITBOX.Address.toCashAddress(address)
 
             return (
               <Performer key={i} performer={performer} address={cashaddr} />
@@ -141,4 +142,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default App
