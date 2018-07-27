@@ -38,29 +38,38 @@ const Title = styled.h1`
   color: #fff;
 `
 
+
+const getOutputAddresses = (outputs) => {
+  const addresses = outputs.reduce((prev, curr, idx) => {
+    const addressArray = curr.scriptPubKey.addresses;
+    const value = BITBOX.BitcoinCash.toBitcoinCash(curr.satoshi);
+
+    const ret = addressArray.reduce((prev, curr, idx) => {
+      return { ...prev, [curr]: { value } }
+    }, {})
+    return [...prev, { ...ret }]
+  }, [])
+
+  return addresses;
+}
+
 class App extends Component {
   constructor(props) {
     super(props)
+
+    const performerAddresses = Object.keys(initPerformers).reduce((prev, curr, idx) => {
+      return [...prev, curr]
+    }, [])
+
     this.state = {
       performers: initPerformers,
-      performerAddresses: [],
-      performer: {},
-      showNotification: false
+      performerAddresses
     }
   }
 
   componentDidMount() {
     socket.listen('transactions', this.handleNewTx.bind(this))
-
-    const { performers } = this.state
-    const addresses = Object.keys(performers).reduce((prev, curr, idx) => {
-      return [...prev, curr]
-    }, [])
-
-    this.setState({
-      performerAddresses: addresses
-    })
-    this.handleUpdateAddressBalance(addresses);
+    this.handleUpdateAddressBalance(this.state.performerAddresses);
   }
 
   handleNewTx(msg) {
@@ -68,18 +77,9 @@ class App extends Component {
     const json = JSON.parse(msg)
     const outputs = json.outputs
 
-    const addresses = outputs.reduce((prev, curr, idx) => {
-      const addressArray = curr.scriptPubKey.addresses;
-      const value = curr.satoshi / 100000000;
-
-      const ret = addressArray.reduce((prev, curr, idx) => {
-        return { ...prev, [curr]: { value } }
-      }, {})
-      return [...prev, { ...ret }]
-    }, [])
+    const addresses = getOutputAddresses(outputs);
 
     Object.keys(performers).forEach(p => {
-
       addresses.forEach(a => {
         const key = Object.keys(a)[0];
 
@@ -100,7 +100,6 @@ class App extends Component {
           this.handleUpdateAddressBalance(performerAddresses)
         }
       })
-
     })
   }
 
@@ -108,7 +107,6 @@ class App extends Component {
     const { performers } = this.state
 
     BITBOX.Address.details(addr).then((result) => {
-
       result.forEach(r => {
         Object.keys(performers).forEach(p => {
           if (p === r.legacyAddress) performers[p].balance = (r.unconfirmedBalance + r.balance).toFixed(8)
@@ -123,13 +121,13 @@ class App extends Component {
   }
 
   render() {
-    const { performers } = this.state
+    const { performers, performerAddresses } = this.state
 
     return (
       <Wrapper>
-        <Title>心付け BCH Encouragement Board <span style={{color: "red"}}>❤</span></Title>
+        <Title>心付け BCH Encouragement Board <span style={{ color: "red" }}>❤</span></Title>
         <Container>
-          {Object.keys(performers).map((p, i) => {
+          {performerAddresses.map((p, i) => {
             const performer = performers[p]
             return (
               <Performer key={i} performer={performer} address={p} />

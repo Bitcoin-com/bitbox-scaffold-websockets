@@ -5,9 +5,11 @@ const Wrapper = styled.div`
     ${props => props.show ?
         css`
         opacity: 1;
+        z-index: 20;
     ` :
         css`
         opacity: 0;
+        z-index:0;
     `}
 
     display: flex;
