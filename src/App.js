@@ -34,6 +34,7 @@ const Title = styled.h1`
   margin: 5px auto;
   font-size: 50px;
   color: #fff;
+  text-shadow: 2px 2px 4px #000;
 `
 
 const getOutputAddresses = (outputs) => {

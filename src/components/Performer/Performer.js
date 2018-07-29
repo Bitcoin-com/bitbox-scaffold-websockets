@@ -13,6 +13,7 @@ const Wrapper = styled.div`
     background: #eee;
     border-radius: 5px;
     padding: 5px;
+    box-shadow: 1px 1px 2px #000;
 `
 
 const Image = styled.div`
@@ -51,6 +52,7 @@ const Name = styled.h2`
     grid-area: name;
     color: #000;
     text-align: center;
+    margin: 7px auto;
 `
 
 const Balance = styled.div`

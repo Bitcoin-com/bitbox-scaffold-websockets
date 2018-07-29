@@ -4,7 +4,8 @@ Used for events, meetups etc to display performer's BHC addresses and notify of 
 
 ## Setup
 
-Edit the `src/performers.js` file with images, names and addresses
+1. Install bitbox-cli with `npm install --global bitbox-cli`
+2. Edit the `src/performers.js` file with images, names and addresses
 
 ## Run
 

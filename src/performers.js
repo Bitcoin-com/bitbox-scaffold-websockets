@@ -1,8 +1,11 @@
 
 import placeholder from './assets/placeholder.png'
 
-import nana from './assets/nana.jpg'
+import nana from './assets/nana.png'
 import kaoco from './assets/kaoco.jpg'
+import djsoulbird from './assets/djsoulbird.jpg'
+import yuka from './assets/yuka.jpg'
+
 
 export const performers = {
   "1QCNsitU6n5EhxF1abqarEvzbxDttNekHX": {
@@ -17,24 +20,24 @@ export const performers = {
     name: "Ako",
     image: placeholder
   },
-  "1cdYtBnaKErYoBghwK1oJa3PX8n61tx7M": {
+  "12TZWNBaCfHH4yL6SjQWvrrBaTgyuuj2xr": {
     name: "Yuka",
-    image: placeholder
+    image: yuka
   },
   "1JxDnuXw6wdbtZf9cbrSdsz17ZqVxvZ5LZ": {
     name: "Ayano",
     image: placeholder
   },
-  "1Lt2T4rYPtyvkoyM9x7UuKTViKDu5oAEQL": {
-    name: "Lady@a@a",
+  "17vhK8siMM15YPYdhDXqGmMJmMzVWcJxFa": {
+    name: "Lady n@n@",
     image: nana
   },
   "1G58o1t4UKa7M2f7z8VMFsY14nWTea8uYT": {
     name: "Kaoco",
     image: kaoco
   },
-  "1BEy9RfrPLt68nyjovWdkhjAL72V9YF4c8": {
+  "1DxRdiZx33KYXTjF3Dj8kvhFuMHea5RPn3": {
     name: "DJ Soulbird",
-    image: placeholder
+    image: djsoulbird
   }
 }
