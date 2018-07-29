@@ -75,7 +75,7 @@ const Name = styled.div`
 `
 
 const Tip = styled.div`
-    font-size: 40px;
+    font-size: 32px;
     font-weight: 700;
 `
 
@@ -87,7 +87,7 @@ class Notification extends React.Component {
             <Wrapper show={show}>
                 <Image src={performer.image} />
                 <Name>{performer.name} just received a tip</Name>
-                <Tip>{performer.lastTip || 0.005} BCH</Tip>
+                <Tip>{performer.lastTip || 0.00500001} BCH</Tip>
             </Wrapper>
         )
     }

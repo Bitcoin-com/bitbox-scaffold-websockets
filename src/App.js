@@ -27,7 +27,7 @@ const Container = styled.div`
   flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: normal;
-  padding: 50px 0;
+  padding: 40px 0;
 `
 
 const Title = styled.h1`
