@@ -74,6 +74,7 @@ class Footer extends React.Component {
                 </PoweredBy>
                 <Sponsors>
                     <SponsorLogos>
+                        <SponsorsImage src={coinspiceLogo} alt="BITBOX" />
                         <SponsorsImage src={bitcoincomLogo} alt="BITBOX" />
                     </SponsorLogos>
                 </Sponsors>
