@@ -51,16 +51,17 @@ const SponsorLogos = styled.div`
     display: flex;
     flex: 1;
     width: 100%;
+    height: 100%;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
 `
 
 const SponsorsImage = styled.img`
-width: auto;
-max-width: 300px;
-max-height: 60px;
-margin: 0px 10px;
+    width: auto;
+    max-width: 300px;
+    max-height: 60px;
+    margin: 0px 10px;
 `
 
 class Footer extends React.Component {

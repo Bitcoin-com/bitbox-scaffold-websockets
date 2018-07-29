@@ -27,11 +27,12 @@ const Container = styled.div`
   flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: normal;
+  padding: 50px 0;
 `
 
 const Title = styled.h1`
   text-align: center;
-  margin: 5px auto;
+  margin: 10px auto;
   font-size: 50px;
   color: #fff;
   text-shadow: 2px 2px 4px #000;
@@ -136,8 +137,8 @@ class App extends Component {
               <Performer key={i} performer={performer} address={cashaddr} />
             )
           })}
-          <Footer />
         </Container>
+        <Footer />
       </Wrapper>
     );
   }
