@@ -29,9 +29,33 @@ const Wrapper = styled.div`
     flex-direction: column;
     align-items: center;
     border-radius: 5px;
+    color: #000;
     justify-content: space-evenly;
 
     transition: all 0.3s ease-out;
+
+    background: linear-gradient(314deg, #ffffff, #faba15, #ffffff);
+    background-size: 600% 600%;
+
+    -webkit-animation: AnimationName 3s ease infinite;
+    -moz-animation: AnimationName 3s ease infinite;
+    animation: AnimationName 3s ease infinite;
+
+    @-webkit-keyframes AnimationName {
+        0%{background-position:0% 10%}
+        50%{background-position:100% 91%}
+        100%{background-position:0% 10%}
+    }
+    @-moz-keyframes AnimationName {
+        0%{background-position:0% 10%}
+        50%{background-position:100% 91%}
+        100%{background-position:0% 10%}
+    }
+    @keyframes AnimationName { 
+        0%{background-position:0% 10%}
+        50%{background-position:100% 91%}
+        100%{background-position:0% 10%}
+    }
 `
 
 const Image = styled.div`

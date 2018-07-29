@@ -70,7 +70,7 @@ class Performer extends React.Component {
         return (
             <Wrapper>
                 <Image image={performer.image} />
-                <Notification performer={performer} show={performer.notification} />
+                <Notification performer={performer} show={true || performer.notification} />
                 <QRContainer>
                     <QRCode value={address} size={170} />
                 </QRContainer>

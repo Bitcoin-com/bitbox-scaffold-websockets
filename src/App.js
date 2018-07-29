@@ -126,7 +126,7 @@ class App extends Component {
 
     return (
       <Wrapper>
-        <Title>心付け BCH Encouragement Board <span style={{ color: "red" }}>❤</span></Title>
+        <Title>Nagesen Tip BCH Please <span style={{ color: "red" }}>❤</span> Board</Title>
         <Container>
           {performerAddresses.map((address, i) => {
             const performer = performers[address]
