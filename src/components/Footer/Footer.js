@@ -61,7 +61,7 @@ const SponsorsImage = styled.img`
     width: auto;
     max-width: 300px;
     max-height: 60px;
-    margin: 0px 10px;
+    margin: 0px 30px;
 `
 
 class Footer extends React.Component {
