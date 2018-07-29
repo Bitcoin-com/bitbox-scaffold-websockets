@@ -7,7 +7,7 @@ const Wrapper = styled.div`
     position: relative;
     margin: 15px;
     display: grid;
-    grid-template-areas: 'pic qr' 'addr addr' 'name name' 'bal bal';
+    grid-template-areas: 'pic qr' 'addr addr' 'name name' 'genre genre' 'bal bal';
     grid-gap: 5px;
     justify-content: center;
     background: #eee;
@@ -52,7 +52,14 @@ const Name = styled.h2`
     grid-area: name;
     color: #000;
     text-align: center;
-    margin: 7px auto;
+    margin: 5px auto;
+`
+
+const Genre = styled.p`
+    grid-area: genre;
+    color: #000;
+    text-align: center;
+    margin: 0;
 `
 
 const Balance = styled.div`
@@ -67,6 +74,7 @@ class Performer extends React.Component {
     render() {
         const { performer, address } = this.props
 
+        const shortAddr = address.substring(12)
         return (
             <Wrapper>
                 <Image image={performer.image} />
@@ -74,8 +82,9 @@ class Performer extends React.Component {
                 <QRContainer>
                     <QRCode value={address} size={170} />
                 </QRContainer>
-                <Address href={address}>{address.substring(12)}</Address>
+                <Address href={address}>{shortAddr}</Address>
                 <Name>{performer.name}</Name>
+                <Genre>({performer.genre})</Genre>
                 <Balance>
                     {performer.balance} BCH
                 </Balance>
