@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import bitboxLogo from '../../assets/bitbox-logo.png'
 import bitcoincomLogo from '../../assets/bitcoincom-logo-white.png'
 import bcfLogo from '../../assets/bcf-logo.png'
-import coinspiceLogo from '../../assets/coinspice_trans.png'
+import coinspiceLogo from '../../assets/coinspice_inverted_BW.png'
 
 const Wrapper = styled.div`
     width: 100%;
