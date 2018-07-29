@@ -13,6 +13,18 @@ export const performers = {
     name: "Yasmeen",
     image: yasmeen
   },
+  "17vhK8siMM15YPYdhDXqGmMJmMzVWcJxFa": {
+    name: "Lady n@n@",
+    image: nana
+  },
+  "12TZWNBaCfHH4yL6SjQWvrrBaTgyuuj2xr": {
+    name: "Yuka",
+    image: yuka
+  },
+  "1DxRdiZx33KYXTjF3Dj8kvhFuMHea5RPn3": {
+    name: "DJ Soulbird",
+    image: djsoulbird
+  },
   "1AsuQDpZAHGRsUpa2CDUj7bo8PeXouBvdj": {
     name: "Ako",
     image: ako
@@ -21,24 +33,12 @@ export const performers = {
     name: "Rie",
     image: rie
   },
-  "12TZWNBaCfHH4yL6SjQWvrrBaTgyuuj2xr": {
-    name: "Yuka",
-    image: yuka
-  },
   "14JgU2eMckpFxTjtS2gcH4GRJWmKHjegaG": {
     name: "Ayano",
     image: ayano
-  },
-  "17vhK8siMM15YPYdhDXqGmMJmMzVWcJxFa": {
-    name: "Lady n@n@",
-    image: nana
   },
   "1G58o1t4UKa7M2f7z8VMFsY14nWTea8uYT": {
     name: "Kaoco",
     image: kaoco
   },
-  "1DxRdiZx33KYXTjF3Dj8kvhFuMHea5RPn3": {
-    name: "DJ Soulbird",
-    image: djsoulbird
-  }
 }
