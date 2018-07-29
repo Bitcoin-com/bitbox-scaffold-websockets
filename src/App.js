@@ -18,6 +18,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content:center;
   align-items: space-between;
+  min-height: 100vh;
 `
 
 const Container = styled.div`
