@@ -46,13 +46,14 @@ const PoweredByTitle = styled.h2`
 `
 
 const Sponsors = styled.div`
-    width: 60%;
+    width: auto;
 `
 
 const SponsorLogos = styled.div`
     display: flex;
     flex: 1;
     width: 100%;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
 `
