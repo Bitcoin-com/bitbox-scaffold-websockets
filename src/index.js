@@ -8,14 +8,12 @@ injectGlobal`
     body,html {
         margin: 0;
         padding: 0;
-        height: 100vh;
         background: #000;
         font-family: Leto, Helvetica, sans-serif;
     }
 
     body {
         width: 100wh;
-        height: 90vh;
         color: #fff;
         background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
         background-size: 400% 400%;
