@@ -56,10 +56,6 @@ const SponsorLogos = styled.div`
     align-items: center;
 `
 
-const SponsorsTitle = styled.h2`
-    width: 100%;
-`
-
 const SponsorsImage = styled.img`
 width: auto;
 max-width: 300px;
