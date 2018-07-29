@@ -75,7 +75,7 @@ const Name = styled.div`
 `
 
 const Tip = styled.div`
-    font-size: 24px;
+    font-size: 40px;
     font-weight: 700;
 `
 

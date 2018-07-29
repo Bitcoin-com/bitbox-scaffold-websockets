@@ -3,12 +3,11 @@ import React from 'react'
 import styled from 'styled-components'
 
 import bitboxLogo from '../../assets/bitbox-logo.png'
-import bitcoincomLogo from '../../assets/bitcoincom-logo.png'
+import bitcoincomLogo from '../../assets/bitcoincom-logo-white.png'
 import bcfLogo from '../../assets/bcf-logo.png'
-import coinspiceLogo from '../../assets/coinspice_inverted.png'
+import coinspiceLogo from '../../assets/coinspice_trans.png'
 
 const Wrapper = styled.div`
-    background: #fff;
     width: 100%;
     text-align: center;
     min-width: 100%;
@@ -20,7 +19,7 @@ const Wrapper = styled.div`
     align-items: top;
     justify-content: space-between;
     box-sizing: border-box;
-    padding: 0;
+    padding: 0 20px;
     color: #000;
 `
 
@@ -32,13 +31,11 @@ const Image = styled.img`
 const PoweredBy = styled.div`
     font-weight: 700;
     padding: 10px;
-    background: #eee;
-    width: 30%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex: 1;
     align-items: center;
-    justify-content: center;
+    justify-content: left;
 `
 
 const PoweredByTitle = styled.h2`
@@ -47,6 +44,7 @@ const PoweredByTitle = styled.h2`
 
 const Sponsors = styled.div`
     width: auto;
+    padding: 10px;
 `
 
 const SponsorLogos = styled.div`
@@ -62,6 +60,13 @@ const SponsorsTitle = styled.h2`
     width: 100%;
 `
 
+const SponsorsImage = styled.img`
+width: auto;
+max-width: 300px;
+max-height: 60px;
+margin: 0px 10px;
+`
+
 class Footer extends React.Component {
     render() {
         return (
@@ -71,11 +76,10 @@ class Footer extends React.Component {
                     <PoweredByTitle>Powered by BITBOX<br />developer.bitcoin.com</PoweredByTitle>
                 </PoweredBy>
                 <Sponsors>
-                    <SponsorsTitle>Sponsors</SponsorsTitle>
                     <SponsorLogos>
-                        <Image src={bitcoincomLogo} alt="BITBOX" />
-                        <Image src={coinspiceLogo} alt="BITBOX" />
-                        <Image src={bcfLogo} alt="BITBOX" />
+                        <SponsorsImage src={bitcoincomLogo} alt="BITBOX" />
+                        <SponsorsImage src={coinspiceLogo} alt="BITBOX" />
+                        <SponsorsImage src={bcfLogo} alt="BITBOX" />
                     </SponsorLogos>
                 </Sponsors>
             </Wrapper>)
