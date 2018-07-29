@@ -29,10 +29,6 @@ export const performers = {
     name: "Ako",
     image: ako
   },
-  "13UvstTMDgBJNGqyXetCZixendJ2KebeBQ": {
-    name: "Rie",
-    image: rie
-  },
   "14JgU2eMckpFxTjtS2gcH4GRJWmKHjegaG": {
     name: "Ayano",
     image: ayano
@@ -40,5 +36,9 @@ export const performers = {
   "1G58o1t4UKa7M2f7z8VMFsY14nWTea8uYT": {
     name: "Kaoco",
     image: kaoco
+  },
+  "13UvstTMDgBJNGqyXetCZixendJ2KebeBQ": {
+    name: "Rie",
+    image: rie
   },
 }
