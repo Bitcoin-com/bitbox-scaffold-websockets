@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import QRCode from 'qrcode-react'
 import Notification from '../Notification'
 
+import bchLogo from '../../assets/bch.png';
+
 const Wrapper = styled.div`
     position: relative;
     margin: 15px;
@@ -80,7 +82,13 @@ class Performer extends React.Component {
                 <Image image={performer.image} />
                 <Notification performer={performer} show={performer.notification} />
                 <QRContainer>
-                    <QRCode value={address} size={170} />
+                    <QRCode
+                        value={address}
+                        size={170}
+                        logo={bchLogo}
+                        logoWidth={70}
+                        logoHeight={43.4}
+                    />
                 </QRContainer>
                 <Address href={address}>{shortAddr}</Address>
                 <Name>{performer.name}</Name>
