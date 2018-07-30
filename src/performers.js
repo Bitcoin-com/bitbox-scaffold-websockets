@@ -39,7 +39,7 @@ export const performers = {
     genre: "Hiphop & Raggaeton",
     image: ayano
   },
-  "1G58o1t4UKa7M2f7z8VMFsY14nWTea8uYT": {
+  "1KWnQ44vqX7yMAdtCRZaw73THjzQyEe4jw": {
     name: "Kaoco",
     genre: "Burlesque",
     image: kaoco
