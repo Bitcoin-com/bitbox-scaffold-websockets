@@ -1,52 +1,44 @@
-import nana from './assets/nana.png'
-import kaoco from './assets/kaoco.jpg'
-import djsoulbird from './assets/djsoulbird.jpg'
-import yuka from './assets/yuka.png'
-import ako from './assets/ako.png'
-import rie from './assets/rie.png'
-import yasmeen from './assets/yasmeen.png'
-import ayano from './assets/ayano.png'
-
+import placeholder from './assets/placeholder.png'
 
 export const performers = {
-  "19Z3RdS6R6AGa8TsYmhVnubpTP8C7cjDZY": {
-    name: "Yasmeen",
-    genre: "Bellydance",
-    image: yasmeen
+  "1QCNsitU6n5EhxF1abqarEvzbxDttNekHX": {
+    name: "Mr Bighat",
+    genre: "Ringleader",
+    image: placeholder
   },
-  "17vhK8siMM15YPYdhDXqGmMJmMzVWcJxFa": {
-    name: "Lady n@n@",
-    genre: "Burlesque",
-    image: nana
+  "1Jk57sXmHmUZhYgssnb3oVTqgAkWWcw8hP": {
+    name: "Bozo",
+    genre: "Clown",
+    image: placeholder
   },
-  "12TZWNBaCfHH4yL6SjQWvrrBaTgyuuj2xr": {
-    name: "Yuka",
-    genre: "Hiphop & Raggaeton",
-    image: yuka
+  "1CX8YjJjZtsKRwDakGiZAVWugNE4jGYg5s": {
+    name: "Rawr",
+    genre: "Liontamer",
+    image: placeholder
   },
-  "1DxRdiZx33KYXTjF3Dj8kvhFuMHea5RPn3": {
-    name: "DJ Soulbird",
-    genre: "DJ",
-    image: djsoulbird
+  "1cdYtBnaKErYoBghwK1oJa3PX8n61tx7M": {
+    name: "Skinnyfoot",
+    genre: "Tightrope",
+    image: placeholder
   },
-  "1AsuQDpZAHGRsUpa2CDUj7bo8PeXouBvdj": {
-    name: "Ako",
-    genre: "Bellydance",
-    image: ako
+  "1JxDnuXw6wdbtZf9cbrSdsz17ZqVxvZ5LZ": {
+    name: "Dumbo",
+    genre: "Elephant",
+    image: placeholder
   },
-  "14JgU2eMckpFxTjtS2gcH4GRJWmKHjegaG": {
-    name: "Ayano",
-    genre: "Hiphop & Raggaeton",
-    image: ayano
+  "1Lt2T4rYPtyvkoyM9x7UuKTViKDu5oAEQL": {
+    name: "Spike",
+    genre: "Sword Swallower",
+    image: placeholder
   },
-  "1KWnQ44vqX7yMAdtCRZaw73THjzQyEe4jw": {
-    name: "Kaoco",
-    genre: "Burlesque",
-    image: kaoco
+  "1G58o1t4UKa7M2f7z8VMFsY14nWTea8uYT": {
+    name: "Shawing",
+    genre: "Trapese",
+    image: placeholder
   },
-  "13UvstTMDgBJNGqyXetCZixendJ2KebeBQ": {
-    name: "Rie",
-    genre: "Bellydance",
-    image: rie
+  "1BEy9RfrPLt68nyjovWdkhjAL72V9YF4c8": {
+    name: "Future Lady",
+    genre: "Fortuneteller",
+    image: placeholder
   },
 }

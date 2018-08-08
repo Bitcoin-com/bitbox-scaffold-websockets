@@ -6,7 +6,10 @@ import Performer from './components/Performer'
 import Footer from './components/Footer'
 import { performers as initPerformers } from './performers'
 
+// initialise BITBOX
 const BITBOX = new BITBOXCli.default()
+
+// initialise socket connection
 const socket = new BITBOX.Socket()
 
 const Wrapper = styled.div`
@@ -38,9 +41,12 @@ const Title = styled.h1`
   text-shadow: 2px 2px 4px #000;
 `
 
+// converts legacy addresses to cashaddr and returns an array
 const getOutputAddresses = (outputs) => {
   const addresses = outputs.reduce((prev, curr, idx) => {
     const addressArray = curr.scriptPubKey.addresses;
+
+    // converts legacy address to cashaddr
     const value = BITBOX.BitcoinCash.toBitcoinCash(curr.satoshi);
 
     const ret = addressArray.reduce((prev, curr, idx) => {
@@ -70,7 +76,10 @@ class App extends Component {
 
   componentDidMount() {
     const { performerAddresses } = this.state
+
+    // create listenner with callback for incomming transactions
     socket.listen('transactions', this.handleNewTx)
+
     this.handleUpdateAddressBalance(performerAddresses)
   }
 
@@ -108,18 +117,20 @@ class App extends Component {
   handleUpdateAddressBalance(addr) {
     const { performers } = this.state
 
-    BITBOX.Address.details(addr).then((result) => {
-      result.forEach(r => {
-        Object.keys(performers).forEach(p => {
-          if (p === r.legacyAddress) performers[p].balance = (r.unconfirmedBalance + r.balance).toFixed(8)
+    // pass array or string and update balances
+    BITBOX.Address.details(addr)
+      .then((result) => {
+        result.forEach(r => {
+          Object.keys(performers).forEach(p => {
+            if (p === r.legacyAddress) performers[p].balance = (r.unconfirmedBalance + r.balance).toFixed(8)
+          })
         })
-      })
-      this.setState({
-        performers
-      })
-    }, (err) => {
-      console.log(err)
-    });
+        this.setState({
+          performers
+        })
+      }, (err) => {
+        console.log(err)
+      });
   }
 
   render() {
@@ -131,6 +142,8 @@ class App extends Component {
         <Container>
           {performerAddresses.map((address, i) => {
             const performer = performers[address]
+
+            // converts legacy address to cashaddr and passes to performer component for display
             const cashaddr = BITBOX.Address.toCashAddress(address)
 
             return (
