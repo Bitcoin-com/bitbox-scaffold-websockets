@@ -1,9 +1,9 @@
 {
-  "name": "tipsmonitor",
+  "name": "bitbox-scaffold-websockets",
   "license": "MIT",
   "description": "Monitors addresses and notifies upon receiving a tip",
   "author": "Paul Bergamo @ Bitcoin.com",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "private": true,
   "dependencies": {
     "bitbox-cli": "^1.4.5",

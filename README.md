@@ -1,4 +1,4 @@
-## TipsMonitor
+## bitbox-scaffold-websockets
 
 Used for events, meetups etc to display performer's BHC addresses and notify of tips when they receive them
 
