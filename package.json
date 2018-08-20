@@ -3,10 +3,10 @@
   "license": "MIT",
   "description": "Monitors addresses and notifies upon receiving a tip",
   "author": "Paul Bergamo @ Bitcoin.com",
-  "version": "0.1.0",
+  "version": "1.5.9",
   "private": true,
   "dependencies": {
-    "bitbox-cli": "^1.4.5",
+    "bitbox-cli": "^1.5.9",
     "node-sass": "^4.9.0",
     "qrcode-react": "^0.1.16",
     "react": "^16.2.0",

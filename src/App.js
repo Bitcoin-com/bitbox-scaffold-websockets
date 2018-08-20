@@ -94,7 +94,7 @@ class App extends Component {
       addresses.forEach(a => {
         const key = Object.keys(a)[0]
 
-        if (p === key) {
+        if (BITBOX.Address.toLegacyAddress(p) === key) {
           performers[p].lastTip = a[key].value
           performers[p].notification = true
           this.setState({
@@ -138,7 +138,7 @@ class App extends Component {
 
     return (
       <Wrapper>
-        <Title>Nagesen Tip BCH Please <span style={{ color: "red" }}>❤</span> Board</Title>
+        <Title>Donate BCH Please <span style={{ color: "red" }}>❤</span></Title>
         <Container>
           {performerAddresses.map((address, i) => {
             const performer = performers[address]
