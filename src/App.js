@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import * as BITBOXCli from 'bitbox-cli/lib/bitbox-cli'
 
-import Performer from './components/Performer'
+import Donation from './components/Donation'
 import Footer from './components/Footer'
-import { performers as initPerformers } from './performers'
+import { donations as initDonations } from './donations'
 
 // initialise BITBOX
 const BITBOX = new BITBOXCli.default()
@@ -62,71 +62,71 @@ class App extends Component {
   constructor(props) {
     super(props)
 
-    const performerAddresses = Object.keys(initPerformers).reduce((prev, curr, idx) => {
+    const donationAddresses = Object.keys(initDonations).reduce((prev, curr, idx) => {
       return [...prev, curr]
     }, [])
 
     this.state = {
-      performers: initPerformers,
-      performerAddresses
+      donations: initDonations,
+      donationAddresses
     }
 
     this.handleNewTx = this.handleNewTx.bind(this)
   }
 
   componentDidMount() {
-    const { performerAddresses } = this.state
+    const { donationAddresses } = this.state
 
     // create listenner with callback for incomming transactions
     socket.listen('transactions', this.handleNewTx)
 
-    this.handleUpdateAddressBalance(performerAddresses)
+    this.handleUpdateAddressBalance(donationAddresses)
   }
 
   handleNewTx(msg) {
-    const { performers, performerAddresses } = this.state
+    const { donations, donationAddresses } = this.state
     const json = JSON.parse(msg)
     const outputs = json.outputs
 
     const addresses = getOutputAddresses(outputs)
 
-    Object.keys(performers).forEach(p => {
+    Object.keys(donations).forEach(p => {
       addresses.forEach(a => {
         const key = Object.keys(a)[0]
 
         if (BITBOX.Address.toLegacyAddress(p) === key) {
-          performers[p].lastTip = a[key].value
-          performers[p].notification = true
+          donations[p].lastTip = a[key].value
+          donations[p].notification = true
           this.setState({
-            performers
+            donations
           })
 
           setTimeout(() => {
-            performers[p].notification = false
+            donations[p].notification = false
             this.setState({
-              performers
+              donations
             })
           }, 5000)
 
-          this.handleUpdateAddressBalance(performerAddresses)
+          this.handleUpdateAddressBalance(donationAddresses)
         }
       })
     })
   }
 
   handleUpdateAddressBalance(addr) {
-    const { performers } = this.state
+    const { donations } = this.state
 
     // pass array or string and update balances
     BITBOX.Address.details(addr)
       .then((result) => {
         result.forEach(r => {
-          Object.keys(performers).forEach(p => {
-            if (p === r.legacyAddress) performers[p].balance = (r.unconfirmedBalance + r.balance).toFixed(8)
+          Object.keys(donations).forEach(p => {
+            if (p === r.legacyAddress) donations[p].balance = (r.unconfirmedBalance + r.balance).toFixed(8)
           })
         })
         this.setState({
-          performers
+          donations
         })
       }, (err) => {
         console.log(err)
@@ -134,20 +134,20 @@ class App extends Component {
   }
 
   render() {
-    const { performers, performerAddresses } = this.state
+    const { donations, donationAddresses } = this.state
 
     return (
       <Wrapper>
         <Title>Donate BCH Please <span style={{ color: "red" }}>❤</span></Title>
         <Container>
-          {performerAddresses.map((address, i) => {
-            const performer = performers[address]
+          {donationAddresses.map((address, i) => {
+            const donation = donations[address]
 
-            // converts legacy address to cashaddr and passes to performer component for display
+            // converts legacy address to cashaddr and passes to donation component for display
             const cashaddr = BITBOX.Address.toCashAddress(address)
 
             return (
-              <Performer key={i} performer={performer} address={cashaddr} />
+              <Donation key={i} donation={donation} address={cashaddr} />
             )
           })}
         </Container>

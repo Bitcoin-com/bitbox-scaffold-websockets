@@ -12,7 +12,7 @@ Used for events, meetups etc to display BCH addresses and notify of tips when th
     * `cd myApp`
 4. Install dependencies
     * `npm install`
-5. Edit the `src/performers.js` file with images, names and addresses
+5. Edit the `src/donations.js` file with images, names and addresses
 6. Start the app
     * `npm start`
 7. Open a browser to `http://localhost:3000/`

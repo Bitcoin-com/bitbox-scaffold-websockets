@@ -51,7 +51,7 @@ const Wrapper = styled.div`
         50%{background-position:100% 91%}
         100%{background-position:0% 10%}
     }
-    @keyframes AnimationName { 
+    @keyframes AnimationName {
         0%{background-position:0% 10%}
         50%{background-position:100% 91%}
         100%{background-position:0% 10%}
@@ -81,13 +81,13 @@ const Tip = styled.div`
 
 class Notification extends React.Component {
     render() {
-        const { performer, show } = this.props
+        const { donation, show } = this.props
 
         return (
             <Wrapper show={show}>
-                <Image src={performer.image} />
-                <Name>{performer.name} just received a tip</Name>
-                <Tip>{performer.lastTip || 0.00500001} BCH</Tip>
+                <Image src={donation.image} />
+                <Name>{donation.name} just received a tip</Name>
+                <Tip>{donation.lastTip || 0.00500001} BCH</Tip>
             </Wrapper>
         )
     }

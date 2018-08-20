@@ -72,15 +72,15 @@ const Balance = styled.div`
     text-align: center;
 `
 
-class Performer extends React.Component {
+class Donation extends React.Component {
     render() {
-        const { performer, address } = this.props
+        const { donation, address } = this.props
 
         const shortAddr = address.substring(12)
         return (
             <Wrapper>
-                <Image image={performer.image} />
-                <Notification performer={performer} show={performer.notification} />
+                <Image image={donation.image} />
+                <Notification donation={donation} show={donation.notification} />
                 <QRContainer>
                     <QRCode
                         value={address}
@@ -91,14 +91,14 @@ class Performer extends React.Component {
                     />
                 </QRContainer>
                 <Address href={address}>{shortAddr}</Address>
-                <Name>{performer.name}</Name>
-                <Genre>({performer.genre})</Genre>
+                <Name>{donation.name}</Name>
+                <Genre>({donation.genre})</Genre>
                 <Balance>
-                    {performer.balance} BCH
+                    {donation.balance} BCH
                 </Balance>
             </Wrapper>
         )
     }
 }
 
-export default Performer
+export default Donation
