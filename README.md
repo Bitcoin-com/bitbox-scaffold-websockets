@@ -1,6 +1,6 @@
 ## BITBOX Scaffold WebSockets
 
-Used for events, meetups etc to display BCH addresses and notify of tips when they receive them
+Used for events, meetups etc to display BCH addresses and notify when donations are received.
 
 ## Setup
 

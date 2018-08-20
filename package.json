@@ -1,7 +1,7 @@
 {
   "name": "bitbox-scaffold-websockets",
   "license": "MIT",
-  "description": "Monitors addresses and notifies upon receiving a tip",
+  "description": "BITBOX Websockets scaffold. Monitors addresses and notifies upon receiving a donation",
   "author": "Paul Bergamo @ Bitcoin.com",
   "version": "1.5.9",
   "private": true,

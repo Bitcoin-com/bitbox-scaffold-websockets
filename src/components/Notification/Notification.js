@@ -86,7 +86,7 @@ class Notification extends React.Component {
         return (
             <Wrapper show={show}>
                 <Image src={donation.image} />
-                <Name>{donation.name} just received a tip</Name>
+                <Name>{donation.name} just received a donation</Name>
                 <Tip>{donation.lastTip || 0.00500001} BCH</Tip>
             </Wrapper>
         )
