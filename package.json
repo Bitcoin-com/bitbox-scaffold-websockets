@@ -3,10 +3,10 @@
   "license": "MIT",
   "description": "BITBOX Websockets scaffold. Monitors addresses and notifies upon receiving a donation",
   "author": "Paul Bergamo @ Bitcoin.com",
-  "version": "1.6.3",
+  "version": "1.6.5",
   "private": true,
   "dependencies": {
-    "bitbox-cli": "^1.6.3",
+    "bitbox-cli": "^1.6.5",
     "node-sass": "^4.9.0",
     "qrcode-react": "^0.1.16",
     "react": "^16.2.0",
