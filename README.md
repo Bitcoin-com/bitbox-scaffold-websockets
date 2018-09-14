@@ -17,3 +17,5 @@ Used for events, meetups etc to display BCH addresses and notify when donations 
     * `npm start`
 7. Open a browser to `http://localhost:3000/`
 8. Win
+
+[![Build Status](https://travis-ci.org/Bitcoin-com/bitbox-scaffold-websockets.svg?branch=master)](https://travis-ci.org/Bitcoin-com/bitbox-scaffold-websockets)
