@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import * as BITBOXCli from 'bitbox-cli/lib/bitbox-cli'
+import * as BITBOXCli from 'bitbox-sdk/lib/bitbox-sdk'
 
 import Donation from './components/Donation'
 import Footer from './components/Footer'

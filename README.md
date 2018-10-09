@@ -4,8 +4,8 @@ Used for events, meetups etc to display BCH addresses and notify when donations 
 
 ## Setup
 
-1. [Install `bitbox-cli`](https://www.npmjs.com/package/bitbox-cli) globally
-    * `npm install bitbox-cli --global`
+1. [Install `bitbox-sdk`](https://www.npmjs.com/package/bitbox-sdk) globally
+    * `npm install bitbox-sdk --global`
 2. Scaffold an WebSockets app w/ BITBOX web bindings
     * `bitbox new myApp --scaffold websockets`
 3. `cd` in to the newly created app
