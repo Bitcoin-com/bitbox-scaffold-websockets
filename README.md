@@ -19,3 +19,6 @@ Used for events, meetups etc to display BCH addresses and notify when donations 
 8. Win
 
 [![Build Status](https://travis-ci.org/Bitcoin-com/bitbox-scaffold-websockets.svg?branch=master)](https://travis-ci.org/Bitcoin-com/bitbox-scaffold-websockets)
+
+### Troubleshooing
+- Some users have reported issues when running on Windows OS. Run `npm i -g react-scripts` to globally install the react-scripts package.
