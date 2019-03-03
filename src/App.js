@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
-import styled from 'styled-components'
-import * as BITBOXCli from 'bitbox-sdk/lib/bitbox-sdk'
+import React, { Component } from "react"
+import styled from "styled-components"
+import * as BITBOXCli from "bitbox-sdk"
 
-import Donation from './components/Donation'
-import Footer from './components/Footer'
-import { donations as initDonations } from './donations'
+import Donation from "./components/Donation"
+import Footer from "./components/Footer"
+import { donations as initDonations } from "./donations"
 
 // initialise BITBOX
 const BITBOX = new BITBOXCli.default()
@@ -13,13 +13,13 @@ const BITBOX = new BITBOXCli.default()
 const socket = new BITBOX.Socket()
 
 const Wrapper = styled.div`
-  padding:0;
+  padding: 0;
   margin: 0;
   display: flex;
-  flex:1;
+  flex: 1;
   flex-wrap: wrap;
   flex-direction: column;
-  justify-content:center;
+  justify-content: center;
   align-items: space-between;
   min-height: 100vh;
 `
@@ -42,12 +42,12 @@ const Title = styled.h1`
 `
 
 // converts legacy addresses to cashaddr and returns an array
-const getOutputAddresses = (outputs) => {
+const getOutputAddresses = outputs => {
   const addresses = outputs.reduce((prev, curr, idx) => {
-    const addressArray = curr.scriptPubKey.addresses;
+    const addressArray = curr.scriptPubKey.addresses
 
     // converts legacy address to cashaddr
-    const value = BITBOX.BitcoinCash.toBitcoinCash(curr.satoshi);
+    const value = BITBOX.BitcoinCash.toBitcoinCash(curr.satoshi)
 
     const ret = addressArray.reduce((prev, curr, idx) => {
       return { ...prev, [curr]: { value } }
@@ -62,9 +62,12 @@ class App extends Component {
   constructor(props) {
     super(props)
 
-    const donationAddresses = Object.keys(initDonations).reduce((prev, curr, idx) => {
-      return [...prev, curr]
-    }, [])
+    const donationAddresses = Object.keys(initDonations).reduce(
+      (prev, curr, idx) => {
+        return [...prev, curr]
+      },
+      []
+    )
 
     this.state = {
       donations: initDonations,
@@ -78,7 +81,7 @@ class App extends Component {
     const { donationAddresses } = this.state
 
     // create listenner with callback for incomming transactions
-    socket.listen('transactions', this.handleNewTx)
+    socket.listen("transactions", this.handleNewTx)
 
     this.handleUpdateAddressBalance(donationAddresses)
   }
@@ -118,19 +121,24 @@ class App extends Component {
     const { donations } = this.state
 
     // pass array or string and update balances
-    BITBOX.Address.details(addr)
-      .then((result) => {
+    BITBOX.Address.details(addr).then(
+      result => {
         result.forEach(r => {
           Object.keys(donations).forEach(p => {
-            if (p === r.legacyAddress) donations[p].balance = (r.unconfirmedBalance + r.balance).toFixed(8)
+            if (p === r.legacyAddress)
+              donations[p].balance = (r.unconfirmedBalance + r.balance).toFixed(
+                8
+              )
           })
         })
         this.setState({
           donations
         })
-      }, (err) => {
+      },
+      err => {
         console.log(err)
-      });
+      }
+    )
   }
 
   render() {
@@ -138,7 +146,9 @@ class App extends Component {
 
     return (
       <Wrapper>
-        <Title>Donate BCH Please <span style={{ color: "red" }}>❤</span></Title>
+        <Title>
+          Donate BCH Please <span style={{ color: "red" }}>❤</span>
+        </Title>
         <Container>
           {donationAddresses.map((address, i) => {
             const donation = donations[address]
@@ -146,14 +156,12 @@ class App extends Component {
             // converts legacy address to cashaddr and passes to donation component for display
             const cashaddr = BITBOX.Address.toCashAddress(address)
 
-            return (
-              <Donation key={i} donation={donation} address={cashaddr} />
-            )
+            return <Donation key={i} donation={donation} address={cashaddr} />
           })}
         </Container>
         <Footer />
       </Wrapper>
-    );
+    )
   }
 }
 
