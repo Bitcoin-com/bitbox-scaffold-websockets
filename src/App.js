@@ -1,16 +1,16 @@
 import React, { Component } from "react"
 import styled from "styled-components"
-import * as BITBOXCli from "bitbox-sdk"
+import { BITBOX } from "bitbox-sdk"
 
 import Donation from "./components/Donation"
 import Footer from "./components/Footer"
 import { donations as initDonations } from "./donations"
 
 // initialise BITBOX
-const BITBOX = new BITBOXCli.default()
+const bitbox = new BITBOX()
 
 // initialise socket connection
-const socket = new BITBOX.Socket()
+const socket = new bitbox.Socket()
 
 const Wrapper = styled.div`
   padding: 0;
@@ -47,7 +47,7 @@ const getOutputAddresses = outputs => {
     const addressArray = curr.scriptPubKey.addresses
 
     // converts legacy address to cashaddr
-    const value = BITBOX.BitcoinCash.toBitcoinCash(curr.satoshi)
+    const value = bitbox.BitcoinCash.toBitcoinCash(curr.satoshi)
 
     const ret = addressArray.reduce((prev, curr, idx) => {
       return { ...prev, [curr]: { value } }
@@ -97,7 +97,7 @@ class App extends Component {
       addresses.forEach(a => {
         const key = Object.keys(a)[0]
 
-        if (BITBOX.Address.toLegacyAddress(p) === key) {
+        if (bitbox.Address.toLegacyAddress(p) === key) {
           donations[p].lastTip = a[key].value
           donations[p].notification = true
           this.setState({
@@ -121,7 +121,7 @@ class App extends Component {
     const { donations } = this.state
 
     // pass array or string and update balances
-    BITBOX.Address.details(addr).then(
+    bitbox.Address.details(addr).then(
       result => {
         result.forEach(r => {
           Object.keys(donations).forEach(p => {
@@ -154,7 +154,7 @@ class App extends Component {
             const donation = donations[address]
 
             // converts legacy address to cashaddr and passes to donation component for display
-            const cashaddr = BITBOX.Address.toCashAddress(address)
+            const cashaddr = bitbox.Address.toCashAddress(address)
 
             return <Donation key={i} donation={donation} address={cashaddr} />
           })}
