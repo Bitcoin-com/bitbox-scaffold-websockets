@@ -3,9 +3,9 @@
   "license": "MIT",
   "description": "BITBOX Websockets scaffold. Monitors addresses and notifies upon receiving a donation",
   "author": "Paul Bergamo @ Bitcoin.com",
-  "version": "7.0.12",
+  "version": "8.4.2",
   "engines": {
-    "node": ">=10.15.1"
+    "node": ">=10.15.3"
   },
   "dependencies": {
     "node-sass": "^4.9.0",
@@ -24,7 +24,7 @@
     "coverage:report": "nyc --reporter=html mocha --require babel-core/register --timeout 5000"
   },
   "devDependencies": {
-    "bitbox-sdk": "7.0.12",
+    "bitbox-sdk": "8.4.2",
     "coveralls": "^3.0.2",
     "eslint": "^5.5.0",
     "eslint-config-prettier": "^3.0.1",
